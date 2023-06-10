@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """
+这个用于正方形的标定格子
+
 Calibrate the Camera with Zhang Zhengyou Method.
 Picture File Folder: "./pic/RGB_camera_calib_img/", Without Distortion. 
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """
+这个用于正方形的标定格子
 Calibrate the Camera with Zhang Zhengyou Method.
 Picture File Folder: "./pic/IR_camera_calib_img/", With Distortion. 
 
@@ -12,15 +13,15 @@ from calibrate_helper import Calibrator
 
 
 def main():
-    img_dir = "./pic/IR_camera_calib_img"
-    shape_inner_corner = (11, 8)
-    size_grid = 0.02
-    # create calibrator
+    img_dir = "./pic/Colon_images_chess_board"
+    shape_inner_corner = (7, 7)
+    size_grid = 0.005
+    # 创建 calibrator
     calibrator = Calibrator(img_dir, shape_inner_corner, size_grid)
-    # calibrate the camera
+    # 相机标定
     mat_intri, coff_dis = calibrator.calibrate_camera()
-    # dedistort and save the dedistortion result
-    save_dir = "./pic/IR_dedistortion"
+    # 恢复畸变并且保存图像
+    save_dir = "./pic/Colon_images_dedistortion"
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     calibrator.dedistortion(save_dir)
